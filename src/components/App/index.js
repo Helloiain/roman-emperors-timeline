@@ -7,7 +7,7 @@ import data from '../../content/data.json';
 const GlobalStyle = createGlobalStyle`
     * {
         font-size: 18px;
-    }
+	}
     body {
         font-family: 'Source Sans Pro', sans-serif;
         margin: 0;
@@ -30,7 +30,7 @@ const App = () => {
 	return (
 		<Container>
 			<GlobalStyle />
-			<Timeline dates={dates} setIndex={setIndex} />
+			<Timeline dates={dates} index={index} setIndex={setIndex} />
 			<History dates={dates} names={names} history={history} index={index} />
 		</Container>
 	);

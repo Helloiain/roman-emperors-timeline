@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { color } from '../Theme';
 
 const Li = styled.li`
+	color: ${color};
 	position: relative;
 	margin: 4rem 0;
 	padding-right: 1rem;
@@ -14,13 +16,12 @@ const Li = styled.li`
 		right: 0;
 		width: 10px;
 		height: 2px;
-		background: #000;
+		background: ${color};
 		opacity: 0.5;
 		transform: scaleX(1);
 		transition: all 0.3s ease-in-out 0s;
 	}
 	&:hover {
-		color: grey;
 		cursor: pointer;
 	}
 	&:focus::after {
@@ -42,7 +43,7 @@ const Container = styled.div`
 	align-items: center;
 	height: 100vh;
 	border-right: 2px solid;
-	border-image: radial-gradient(#000, rgba(0, 0, 0, 0)) 1 1%;
+	border-image: radial-gradient(${color}, transparent) 1 1%;
 `;
 
 export { Li, Ul, Container };

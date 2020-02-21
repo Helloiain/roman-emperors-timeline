@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { backgroundColor } from '../Theme';
+
 import Timeline from '../Timeline';
 import History from '../History';
+import ThemeToggler from '../ThemeToggler';
 import data from '../../content/data.json';
 
 const GlobalStyle = createGlobalStyle`
@@ -10,7 +13,8 @@ const GlobalStyle = createGlobalStyle`
 	}
     body {
         font-family: 'Source Sans Pro', sans-serif;
-        margin: 0;
+		margin: 0;
+		background: ${backgroundColor};
     }
     h1 {
         font-size: 2.5rem;
@@ -26,13 +30,17 @@ const App = () => {
 	const [names] = useState(data.map(object => object.name));
 	const [history] = useState(data.map(object => object.history));
 	const [index, setIndex] = useState(0);
+	const [theme, setTheme] = useState({ mode: 'light' });
 
 	return (
-		<Container>
-			<GlobalStyle />
-			<Timeline dates={dates} index={index} setIndex={setIndex} />
-			<History dates={dates} names={names} history={history} index={index} />
-		</Container>
+		<ThemeProvider theme={theme}>
+			<Container>
+				<GlobalStyle />
+				<Timeline dates={dates} index={index} setIndex={setIndex} />
+				<History dates={dates} names={names} history={history} index={index} />
+				<ThemeToggler theme={theme} setTheme={setTheme} />
+			</Container>
+		</ThemeProvider>
 	);
 };
 

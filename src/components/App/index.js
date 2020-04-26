@@ -26,12 +26,13 @@ const Container = styled.div`
 `;
 
 const App = () => {
-	const [dates] = useState(data.map(object => object.date));
-	const [names] = useState(data.map(object => object.name));
-	const [history] = useState(data.map(object => object.history));
+	const [dates] = useState(data.map((object) => object.date));
+	const [names] = useState(data.map((object) => object.name));
+	const [history] = useState(data.map((object) => object.history));
 	const [index, setIndex] = useState(0);
 	const [theme, setTheme] = useState({ mode: 'light' });
 
+	// discord: @fiddler
 	return (
 		<ThemeProvider theme={theme}>
 			<Container>
